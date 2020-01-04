@@ -52,4 +52,9 @@ public class State {
 		this.tourisms = tourisms;
 	}
 
+	@Override
+	public String toString() {
+		return "State [stateId=" + stateId + ", stateName=" + stateName + ", tourisms=" + tourisms + "]";
+	}
+
 }

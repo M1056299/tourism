@@ -76,7 +76,7 @@ body {
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 			<div class="container">
-				<form action="/addHotel" method="post" onsubmit="return validate()"
+				<form action="/getHotels" method="post" onsubmit="return validate()"
 					id="form">
 					<h2>Hotel Data Page</h2>
 					<div>
@@ -97,14 +97,6 @@ body {
 
 						</select>
 					</div>
-					<div class="form-group">
-						<label for="hotelName">Hotel Name :</label> <input type="text"
-							class="form-control item" name="hotelName" id="hotelName">
-					</div>
-					<div class="form-group">
-						<label for="price">Hotel Price :</label> <input type="text"
-							class="form-control item" name="price" id="price">
-					</div>
 					<div>
 						<button type="submit" class="btn-success create button">Submit</button>
 					</div>
@@ -112,6 +104,31 @@ body {
 			</div>
 		</div>
 		<div class="col-md-4"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<div class="container">
+				<table class="table-active" border="2" width="70%" cellpadding="2">
+					<tr>
+						<th class="table-success">HOTEL NAME</th>
+						<th class="table-warning">HOTEL PRICE</th>
+						<th class="table-danger">BOOK</th>
+						<th class="table-warning">COMMENTS</th>
+					</tr>
+					<c:forEach var="hotel" items="${hotels}">
+						<tr class="info">
+							<td>${hotel.hotelName}</td>
+							<td>${hotel.price}</td>
+							<td><a href="/book/${hotel.hotelId}">Book</a>
+							<td><a href="/view/${hotel.hotelId}">Comments</a>
+						</tr>
+
+					</c:forEach>
+				</table>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
 	</div>
 </body>
 </html>
